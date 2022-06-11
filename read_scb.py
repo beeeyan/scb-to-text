@@ -16,9 +16,9 @@ def get_lines_by_page(page_title):
     lines = r.json()['lines'][1:]
     result = ''
     for line in lines:
-        if line['text'] == break_text:
+        scb_line : str = line['text']
+        if scb_line == break_text:
             break
         # Scrapboxのリンクはなしにする。
-        # print(line['text'].replace('[', '').replace(']', ''))
-        result += line['text'].replace('[', '').replace(']', '') + '\n'
+        result += scb_line.replace('[', '').replace(']', '') + '\n'
     return result
